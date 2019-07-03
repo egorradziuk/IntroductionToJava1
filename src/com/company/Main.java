@@ -121,16 +121,16 @@ public class Main {
         String s = String.valueOf(number);
         if(s.length() == 7) {
 
-            int asd = 0;
+            int newNumber = 0;
 
             for (int i = 0; i < s.length(); i++) {
-                asd += number % 10;
+                newNumber += number % 10;
                 number /= 10;
                 if ((s.length() - i) != 1) {
-                    asd *= 10;
+                    newNumber *= 10;
                 }
             }
-            System.out.println("реверсия семизначного числа "+s+" = "+asd);
+            System.out.println("реверсия семизначного числа "+s+" = "+newNumber);
         } else {
             System.out.println("введённое число не является семизначным");
         }

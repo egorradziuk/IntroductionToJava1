@@ -25,11 +25,11 @@ public class Task2 {
         double bc = Math.sqrt(Math.abs(Math.pow((bx-cx),2) + Math.pow((by-cy),2)));
         double ac = Math.sqrt(Math.abs(Math.pow((ax-cx),2) + Math.pow((ay-cy),2)));
 
-        if((ax!=bx && ax!=cx && bx!=cx) && (ay!=by && ay!=cy && by!=cy) /*&& (...)*/) { // не хватает ещё одного условия
+        if((ax!=bx || ax!=cx || bx!=cx) && (ay!=by || ay!=cy || by!=cy) /*&& (...)*/) { // не хватает ещё одного условия
             if (ab == (Math.sqrt(Math.pow(bc,2) + Math.pow(ac,2)))
                     || bc == (Math.sqrt(Math.pow(ab,2) + Math.pow(ac,2)))
                     || ac == (Math.sqrt(Math.pow(ab,2) + Math.pow(bc,2)))) {
-                    System.out.println("The coordinate points are vertices of a triangle. This is right triangle.");
+                System.out.println("The coordinate points are vertices of a triangle. This is right triangle.");
             } else {
                 System.out.println("The coordinate points are vertices of a triangle. This is not right triangle.");
             }

@@ -20,12 +20,16 @@ public class Main {
 
         int sevenDigitNumber = 4596846;
 
+        int d = 1234;
+        int e = 56789;
+
         checkNumbers(a,b,c); // проверка чисел на равенство
         dinosaurMass(kilogram); // конвертация массы динозавра
         ringArea(r1,r2); // нахождение площади кольца
         sequenceCheck(fourDigitNumber); // проверка чисел четырёхзначного числа на образование возрастающей (убывающей) последовательности
         arithmeticAndGeometricMean(sixDigitNumber); // расчёт арифметическое и геометрическое среднее цифр шестизначного числа
         reverseNumber(sevenDigitNumber); // выполняет реверсию семизначного числа
+        changeValues(d,e); // выполняет замену содержимого двух целочисленных переменных "d" и "e"
     }
 
     public static void checkNumbers(double a, double b, double c){
@@ -134,5 +138,12 @@ public class Main {
         } else {
             System.out.println("введённое число не является семизначным");
         }
+    }
+
+    public static void changeValues(int a, int b){
+        a = a + b;
+        b = a - b;
+        a = a - b;
+        System.out.println("a = "+a+"; b = "+b);
     }
 }

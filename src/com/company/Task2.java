@@ -137,7 +137,7 @@ public class Task2 {
                 System.out.println("The day was specified incorrectly, try again please.");
             }
         } else {
-            System.out.println("The month or year were specified incorrectly, try again please.");
+            System.out.println("The month, year or day were specified incorrectly, try again please.");
         }
     }
 

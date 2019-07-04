@@ -17,7 +17,7 @@ public class Task2 {
 
         int day = 29;
         int month = 2;
-        int year = -2400;
+        int year = 2400;
 
         triangle(ax, ay, bx, by, cx, cy); /* Определение, являются ли данные точки вершинами треугольника
                                              и если да, то является ли данный треугольник прямоугольным.*/
@@ -76,72 +76,68 @@ public class Task2 {
 
     public static void calendar(int day, int month, int year) {
         int nextDay = day + 1;
-        int days = 0; //number of days in a month
-        if (year > 0) {
-            if (month <= 12 && month > 0) {
-                switch (month) {
-                    case 1:
-                        days = 31;
-                        break;
-                    case 2:
-                        if (((year % 4) == 0) && ((year % 100) != 0) || ((year % 4) == 0) && ((year % 100) == 0) && ((year % 400) == 0)) {
-                            days = 29;
-                        } else {
-                            days = 28;
-                        }
-                        break;
-                    case 3:
-                        days = 31;
-                        break;
-                    case 4:
-                        days = 30;
-                        break;
-                    case 5:
-                        days = 31;
-                        break;
-                    case 6:
-                        days = 30;
-                        break;
-                    case 7:
-                        days = 31;
-                        break;
-                    case 8:
-                        days = 31;
-                        break;
-                    case 9:
-                        days = 30;
-                        break;
-                    case 10:
-                        days = 31;
-                        break;
-                    case 11:
-                        days = 30;
-                        break;
-                    case 12:
-                        days = 31;
-                        break;
-                }
+        int amountOfDays = 0; //number of days in a month
 
-                if (days > day && day > 0) {
-                    System.out.println("Next date: " + nextDay + "." + month + "." + year + "(format - dd.MM.yyyy)");
-                } else if (days == day && month < 12) {
-                    nextDay = 1;
-                    month += 1;
-                    System.out.println("Next date: " + nextDay + "." + month + "." + year + "(format - dd.MM.yyyy)");
-                } else if (days == day && month == 12) {
-                    nextDay = 1;
-                    month = 1;
-                    year += 1;
-                    System.out.println("Next date: " + nextDay + ".0" + month + "." + year + "(format - dd.MM.yyyy)");
-                } else {
-                    System.out.println("The day was specified incorrectly, try again please.");
-                }
+        if (month <= 12 && month > 0 && year > 0 && day > 0 && day <= 31) {
+            switch (month) {
+                case 1:
+                    amountOfDays = 31;
+                    break;
+                case 2:
+                    if (((year % 4) == 0) && ((year % 100) != 0) || ((year % 4) == 0) && ((year % 100) == 0) && ((year % 400) == 0)) {
+                        amountOfDays = 29;
+                    } else {
+                        amountOfDays = 28;
+                    }
+                    break;
+                case 3:
+                    amountOfDays = 31;
+                    break;
+                case 4:
+                    amountOfDays = 30;
+                    break;
+                case 5:
+                    amountOfDays = 31;
+                    break;
+                case 6:
+                    amountOfDays = 30;
+                    break;
+                case 7:
+                    amountOfDays = 31;
+                    break;
+                case 8:
+                    amountOfDays = 31;
+                    break;
+                case 9:
+                    amountOfDays = 30;
+                    break;
+                case 10:
+                    amountOfDays = 31;
+                    break;
+                case 11:
+                    amountOfDays = 30;
+                    break;
+                case 12:
+                    amountOfDays = 31;
+                    break;
+            }
 
+            if (amountOfDays > day && day > 0) {
+                System.out.println("Next date: " + nextDay + "." + month + "." + year + "(format - dd.MM.yyyy)");
+            } else if (amountOfDays == day && month < 12) {
+                nextDay = 1;
+                month += 1;
+                System.out.println("Next date: " + nextDay + "." + month + "." + year + "(format - dd.MM.yyyy)");
+            } else if (amountOfDays == day && month == 12) {
+                nextDay = 1;
+                month = 1;
+                year += 1;
+                System.out.println("Next date: " + nextDay + "." + month + "." + year + "(format - dd.MM.yyyy)");
             } else {
-                System.out.println("The month was specified incorrectly, try again please.");
+                System.out.println("The day was specified incorrectly, try again please.");
             }
         } else {
-            System.out.println("The year was specified incorrectly, try again please.");
+            System.out.println("The month or year were specified incorrectly, try again please.");
         }
     }
 

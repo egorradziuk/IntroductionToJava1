@@ -11,8 +11,8 @@ public class Main {
 
         double kilogram = 920.157; // масса динозавра в килограммах
 
-        double r1 = 5.5; // внешний радиус кольца
-        double r2 = 3.7; // внутренний радиус кольца
+        double outsideRadius = 5.5; // внешний радиус кольца
+        double insideRadius = 3.7; // внутренний радиус кольца
 
         int fourDigitNumber = 9531;
 
@@ -24,40 +24,42 @@ public class Main {
         int e = 56789;
 
         checkNumbers(a,b,c); // проверка чисел на равенство
-        dinosaurMass(kilogram); // конвертация массы динозавра
-        ringArea(r1,r2); // нахождение площади кольца
+        massConverter(kilogram); // конвертация массы динозавра
+        ringArea(outsideRadius, insideRadius); // нахождение площади кольца
         sequenceCheck(fourDigitNumber); // проверка чисел четырёхзначного числа на образование возрастающей (убывающей) последовательности
         arithmeticAndGeometricMean(sixDigitNumber); // расчёт арифметическое и геометрическое среднее цифр шестизначного числа
         reverseNumber(sevenDigitNumber); // выполняет реверсию семизначного числа
         changeValues(d,e); // выполняет замену содержимого двух целочисленных переменных "d" и "e"
     }
 
-    public static void checkNumbers(double a, double b, double c){
-        if(a==b && b==c){
-            System.out.println("числа одинаковы");
+    public static void checkNumbers(double a, double b, double c) {
+        if (a == b && b == c) {
+            System.out.println("The numbers are the same.");
+        } else if(a == b || b == c || a == c){
+            System.out.println("Only two of three numbers are the same.");
         } else {
-            System.out.println("числа различны");
+            System.out.println("The numbers are the different.");
         }
     }
 
-    public static void dinosaurMass(double kilogram){
+    public static void massConverter(double kilogram){
 
         double milligrams = kilogram * 1000_000;
         double grams = kilogram * 1000;
-        double tons = kilogram / 1000;
+        double tonnes = kilogram / 1000;
 
-        System.out.println("масса дино: милиграмм = "+milligrams+", грамм = "+grams+", тонн = "+tons);
+        System.out.println("Mass dinosaur: milligram = "+milligrams+", gram = "+grams+", tonnes = "+tonnes);
     }
 
-    public static void  ringArea(double r1, double r2){
+    public static void  ringArea(double outsideRadius, double insideRadius){
 
         double area;
 
-        if(r1>r2){
-            area = Math.PI * (Math.pow(r1,2) - Math.pow(r2,2));
-            System.out.println("площадь кольца = "+area);
+        if(outsideRadius>insideRadius){
+            area = Math.PI * (Math.pow(outsideRadius,2) - Math.pow(insideRadius,2));
+            System.out.println("ring area = "+area);
         } else {
-            System.out.println("r2 должен быть меньше r1,т.к. внутренний радиус не может быть больше внешнего");
+            System.out.println("The inside radius should be less than outside radius.");
         }
     }
 
@@ -85,14 +87,14 @@ public class Main {
             }
 
             if (firstDigit < secondDigit && secondDigit < thirdDigit && thirdDigit < fourthDigit) {
-                System.out.println("цифры числа " + s + " образуют возрастающую последовательность");
+                System.out.println("The digits of the number " + s + " form an increasing sequence.");
             } else if (firstDigit > secondDigit && secondDigit > thirdDigit && thirdDigit > fourthDigit) {
-                System.out.println("цифры числа " + s + " образуют убывающую последовательность");
+                System.out.println("The digits of the number " + s + " form a decreasing sequence.");
             } else {
-                System.out.println("цифры числа " + s + " не образуют убывающую или возрастающую последовательности");
+                System.out.println("The digits of the number " + s + " do not form decreasing sequence and increasing sequence.");
             }
         } else {
-            System.out.println("введённое число не является четырёхзначным");
+            System.out.println("The number entered is not a four-digit.");
         }
     }
 
@@ -112,10 +114,10 @@ public class Main {
             double arithmeticMean = sum / s.length();
             double geometricMean = Math.pow(sum, 1.0/s.length());
 
-            System.out.println("среднее арифметическое цифр шестизначного числа "+s+" = "+arithmeticMean);
-            System.out.println("среднее геометрическое цифр шестизначного числа "+s+" = "+geometricMean);
+            System.out.println("The arithmetic mean of six-digit number "+s+" = "+arithmeticMean);
+            System.out.println("The geometric mean of six-digit number "+s+" = "+geometricMean);
         } else {
-            System.out.println("введённое число не является шестизначным");
+            System.out.println("The entered number is not a six-digit.");
         }
 
     }
@@ -134,16 +136,17 @@ public class Main {
                     newNumber *= 10;
                 }
             }
-            System.out.println("реверсия семизначного числа "+s+" = "+newNumber);
+            System.out.println("Reversal of a seven-digit number "+s+" = "+newNumber);
         } else {
-            System.out.println("введённое число не является семизначным");
+            System.out.println("The entered number is not seven-digit.");
         }
     }
 
     public static void changeValues(int a, int b){
+        System.out.println("before: a = "+a+"; b = "+b);
         a = a + b;
         b = a - b;
         a = a - b;
-        System.out.println("a = "+a+"; b = "+b);
+        System.out.println("after: a = "+a+"; b = "+b);
     }
 }

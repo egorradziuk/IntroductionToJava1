@@ -11,8 +11,8 @@ public class Main {
 
         double kilogram = 920.157; // масса динозавра в килограммах
 
-        double outsideRadius = 5.5; // внешний радиус кольца
-        double insideRadius = 3.7; // внутренний радиус кольца
+        double outerRadius = 5.5; // внешний радиус кольца
+        double innerRadius = 3.7; // внутренний радиус кольца
 
         int fourDigitNumber = 9531;
 
@@ -21,11 +21,11 @@ public class Main {
         int sevenDigitNumber = 4596846;
 
         int d = 1234;
-        int e = 56789;
+        int e = -56789;
 
         checkNumbers(a,b,c); // проверка чисел на равенство
         massConverter(kilogram); // конвертация массы динозавра
-        ringArea(outsideRadius, insideRadius); // нахождение площади кольца
+        ringArea(outerRadius, innerRadius); // нахождение площади кольца
         sequenceCheck(fourDigitNumber); // проверка чисел четырёхзначного числа на образование возрастающей (убывающей) последовательности
         arithmeticAndGeometricMean(sixDigitNumber); // расчёт арифметическое и геометрическое среднее цифр шестизначного числа
         reverseNumber(sevenDigitNumber); // выполняет реверсию семизначного числа
@@ -43,23 +43,26 @@ public class Main {
     }
 
     public static void massConverter(double kilogram){
-
-        double milligrams = kilogram * 1000_000;
-        double grams = kilogram * 1000;
-        double tonnes = kilogram / 1000;
-
-        System.out.println("Mass dinosaur: milligram = "+milligrams+", gram = "+grams+", tonnes = "+tonnes);
+        if(kilogram > 0) {
+            double milligrams = kilogram * 1000_000;
+            double grams = kilogram * 1000;
+            double tonnes = kilogram / 1000;
+            System.out.println("Mass dinosaur: milligram = " + milligrams + ", gram = " + grams + ", tonnes = " + tonnes);
+        } else {
+            System.out.println("The mass can't be negative.");
+        }
     }
 
-    public static void  ringArea(double outsideRadius, double insideRadius){
+    public static void  ringArea(double outerRadius, double innerRadius){
 
         double area;
 
-        if(outsideRadius>insideRadius){
-            area = Math.PI * (Math.pow(outsideRadius,2) - Math.pow(insideRadius,2));
+        if(outerRadius > innerRadius && innerRadius > 0){
+            area = Math.PI * (Math.pow(outerRadius,2) - Math.pow(innerRadius,2));
             System.out.println("ring area = "+area);
         } else {
-            System.out.println("The inside radius should be less than outside radius.");
+            System.out.println("The inner radius must be less than the outer radius." +
+                    " And the radius must be greater than zero.");
         }
     }
 
